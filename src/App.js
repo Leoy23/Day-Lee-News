@@ -1,13 +1,33 @@
-import React,{ useState, useEffect } from "react";
-import './App.css';
+import React, { useState, useEffect} from 'react';
+import { fetchData } from './apiCalls';
+import "./App.css"
 
+const App = () => {
+  const [newsData, setNewsData] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [copyright, setCopyright] = useState(null)
 
-function App() {
+  const getNewsData = () => {
+    setLoading(true)
+    fetchData('world')
+    .then((data) => {
+      setNewsData(data.results)
+      setCopyright(data.copyright)
+      setLoading(false)
+    })
+  }
+
+  useEffect(() => {
+   getNewsData()
+  }, [])
+
+  console.log(newsData)
+
   return (
-    <div className="App">
-      <h1>This is the Day-Lee News Feed!</h1>
+    <div>
     </div>
-  );
+  )
 }
 
 export default App;
+
