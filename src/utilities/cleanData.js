@@ -21,7 +21,6 @@ export const cleanData = (data) => {
             img: defaultImage,
             url: newData.short_url,
           }
-
   })
   return formattedData;
 

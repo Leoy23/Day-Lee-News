@@ -41,6 +41,7 @@ console.log(newsData)
                 className="site-logo"
                 width="35%"
               />
+              <h2 style={{color: "#b89d40"}}><i>Your new favorite news source</i></h2>
             </div>
             <Navbar />
             <ArticleContainer newsData={newsData} />

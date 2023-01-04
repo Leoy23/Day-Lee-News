@@ -7,13 +7,10 @@ const ArticleContainer = ({ newsData }) => {
     return (
       <ArticleCard
         abstract={article.abstract}
-        byline={article.byline}
         img={article.img.url}
         key={index}
-        published={article.published}
         section={article.section}
         title={article.title}
-        url={article.url}
       />
     );
   });
