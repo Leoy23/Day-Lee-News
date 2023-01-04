@@ -1,6 +1,8 @@
 import React, { useState, useEffect} from 'react';
-import { fetchData } from './apiCalls';
+import { Switch, Route } from 'react-router-dom';
+import { fetchData } from '../../utilities/apiCalls';
 import "./App.css"
+import Home from '../Home/Home';
 
 const App = () => {
   const [newsData, setNewsData] = useState(null)
@@ -21,11 +23,14 @@ const App = () => {
    getNewsData()
   }, [])
 
-  console.log(newsData)
-
   return (
-    <div>
-    </div>
+    <main className='App'>
+      <Switch>
+        <Route exact path="/">
+          <Home newsData={newsData}/>
+        </Route>
+      </Switch>
+    </main>
   )
 }
 
