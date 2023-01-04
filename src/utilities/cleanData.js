@@ -1,24 +1,29 @@
-import nyt from "../../assets/nytimes.jpg";
+import nyt from "../../src/assets/nytimes.jpg";
 
 export const cleanData = (data) => {
-  const defaultImage = data.multimedia
-    ? {
-        url: data.multimedia[0].url,
-        copyright: data.multimedia[0].url,
-      }
-    : {
-        url: nyt,
-        copyright: data.multimedia[0].copyright,
-      };
+  const formattedData = data.results.map((newData) => {
+      const defaultImage = newData.multimedia !== null
+        ? {
+            url: newData.multimedia[0].url,
+            copyright: "New York Times"
+          }
+        : {
+            url: nyt,
+            copyright: "New York Times"
+          };
 
-  return {
-    section: data.section,
-    title: data.title,
-    abstract: data.abstract,
-    byline: data.byline,
-    published: data.published_date,
-    location: data.geo_facets,
-    img: defaultImage,
-    url: data.short_url,
-  };
+        return {
+            section: newData.section,
+            title: newData.title,
+            abstract: newData.abstract,
+            byline: newData.byline,
+            published: newData.published_date,
+            location: newData.geo_facets,
+            img: defaultImage,
+            url: newData.short_url,
+          }
+
+  })
+  return formattedData;
+
 };

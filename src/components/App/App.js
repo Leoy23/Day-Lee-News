@@ -2,29 +2,34 @@ import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import { fetchData } from "../../utilities/apiCalls";
 import "./App.css";
-import siteLogo from "../../assets/DLN.png"
+import siteLogo from "../../assets/DLN.png";
 // import Home from "../Home/Home";
 import Navbar from "../Navbar/Navbar";
 import ArticleContainer from "../ArticleContainer/ArticleContainer";
 
 const App = () => {
   const [newsData, setNewsData] = useState([]);
+  const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
-  const [copyright, setCopyright] = useState(null);
-
-  const getNewsData = () => {
-    setLoading(true);
-    fetchData("world").then((data) => {
-      setNewsData(data.results);
-      setCopyright(data.copyright);
-      setLoading(false);
-    });
-  };
-
+ 
+  
   useEffect(() => {
     getNewsData();
   }, []);
 
+  const getNewsData = () => {
+    setLoading(true);
+    fetchData("world")
+    .then((data) => {
+      console.log(data)
+      setNewsData(data);
+      setLoading(false);
+    });
+  };
+
+
+console.log(newsData)
+  
   return (
     <main className="App">
       <Switch>
@@ -39,7 +44,7 @@ const App = () => {
               />
             </div>
             <Navbar />
-            <ArticleContainer newsData={newsData} copyright={copyright} />
+            <ArticleContainer newsData={newsData} />
           </section>
         </Route>
       </Switch>
