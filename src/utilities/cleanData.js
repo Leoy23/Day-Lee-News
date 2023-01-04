@@ -5,7 +5,7 @@ export const cleanData = (data) => {
       const defaultImage = newData.multimedia !== null
         ? {
             url: newData.multimedia[0].url,
-            copyright: "New York Times"
+            copyright: newData.multimedia[0].copyright
           }
         : {
             url: nyt,
@@ -17,8 +17,7 @@ export const cleanData = (data) => {
             title: newData.title,
             abstract: newData.abstract,
             byline: newData.byline,
-            published: newData.published_date,
-            location: newData.geo_facets,
+            published: new Date(newData.published_date).toDateString(),
             img: defaultImage,
             url: newData.short_url,
           }
