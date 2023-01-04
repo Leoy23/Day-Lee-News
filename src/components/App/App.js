@@ -21,7 +21,6 @@ const App = () => {
     setLoading(true);
     fetchData("world")
     .then((data) => {
-      console.log(data)
       setNewsData(data);
       setLoading(false);
     });
