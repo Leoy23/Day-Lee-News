@@ -17,7 +17,7 @@ export const cleanData = (data) => {
             title: newData.title,
             abstract: newData.abstract,
             byline: newData.byline,
-            published: new Date(newData.published_date).toDateString(),
+            published: newData.published_date,
             img: defaultImage,
             url: newData.short_url,
           }
