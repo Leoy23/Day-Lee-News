@@ -11,6 +11,7 @@ const ArticleContainer = ({ newsData }) => {
         key={index}
         section={article.section}
         title={article.title}
+        published={article.published}
       />
     );
   });
