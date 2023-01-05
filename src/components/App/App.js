@@ -33,18 +33,13 @@ const App = () => {
     });
   };
 
-  const handleChange = (e) => {
-    const searchInput = e.target.value.toLowerCase();
-    setQuery(searchInput)
-  }
-
   const articleSearch = () => {
     const searchTitles = newsData.filter((art) => {
-      return art.title.toLowerCase().includes(query)
+      return art.title.toLowerCase().includes(query.toLowerCase())
     })
     setSearchQuery(searchTitles)
-    console.log(searchQuery, "here I am")
   }
+  console.log(searchQuery)
 
   const handleOpen = () => {
     setOpen(!open)
@@ -78,8 +73,8 @@ const App = () => {
               </h2>
             </div>
             <Navbar handleOpen={handleOpen}/>
-            {open ? <Search /> : null}
-            <ArticleContainer newsData={newsData} />
+            {open ? <Search articleSearch={articleSearch} query={query} setQuery={setQuery} /> : null}
+            <ArticleContainer newsData={newsData} searchQuery={searchQuery}/>
           </section>
         </Route>
       </Switch>

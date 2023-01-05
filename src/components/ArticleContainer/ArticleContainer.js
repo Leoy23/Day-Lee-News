@@ -2,16 +2,12 @@ import React from "react";
 import "./ArticleContainer.css";
 import ArticleCard from "../ArticleCard/ArticleCard";
 
-const ArticleContainer = ({ newsData }) => {
-    const artCard = newsData.map((article, index) => {
+const ArticleContainer = ({ newsData, searchQuery }) => {
+  const artCard = newsData.map((article, index) => {
     return (
       <ArticleCard
-        abstract={article.abstract}
-        img={article.img.url}
+        article={article}
         key={index}
-        section={article.section}
-        title={article.title}
-        published={article.published}
       />
     );
   });

@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ArticleCard.css";
 
-const ArticleCard = ({ abstract, img, section, published, title }) => {
+const ArticleCard = ({ article }) => {
+  const { title, img, abstract, section, published } = article;
   return (
     <article className="article-card">
       <div className="article-title-box">
@@ -10,10 +11,10 @@ const ArticleCard = ({ abstract, img, section, published, title }) => {
       </div>
       <div className="art-details">
         <img
-          src={img}
+          src={img.url}
           alt="article card background"
           className="art-img"
-          height="185rem"
+          height="160rem"
         />
         <div className="art-abstract">
           <p>

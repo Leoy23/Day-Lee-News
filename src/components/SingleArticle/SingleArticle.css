@@ -1,0 +1,25 @@
+.article {
+    display: flex;
+    padding: 1rem;
+}
+
+.single-art-page {
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-btn {
+    padding: .75rem;
+    background-color: #b89d40;
+    color: wheat;
+}
+
+
+.art-info {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.art-title {
+    color: #b89d40;
+}

@@ -2,22 +2,25 @@
     display: flex;
     flex-direction: column;
     align-content: center;
-    padding: 5rem;
-    border-top: 2px solid #b89d40;
-    border-bottom: 2px solid #b89d40;
-    margin: 2rem;
+    padding: 2rem;
+    margin-top: 4rem;
+    /* border-top: 2px solid #b89d40;
+    border-bottom: 2px solid #b89d40; */
+    /* margin: 2rem; */
 }
 
-h1 {
+.search-title {
     font-size: 2em;
     color: #b89d40;
 }
 
 input  {
-    padding: 6px;
+    padding: .35rem;
 }
 
 .search-btn {
-    padding: 6px;
+    padding: .30rem;
     margin-left: 1rem;
+    background-color: #b89d40;
+    color: wheat;
 }

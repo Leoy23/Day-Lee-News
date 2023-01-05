@@ -1,23 +1,28 @@
 import React from "react";
+// import { Link } from "react-router-dom";
 import "./Search.css";
 
-const Search = ({ articleSearch, onChangeFxn }) => {
+const Search = ({ query, setQuery, articleSearch }) => {
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    articleSearch(query)
+  }
+
   return (
     <section className="search-page">
       <div className="search-box-title">
-        <h1>SEARCH FOR ARTICLES BY TITLE</h1>
+        <h1 className="search-title">SEARCH FOR ARTICLES BY TITLE</h1>
       </div>
       <div className="form-box">
         <form>
           <input
-            type="search"
+            type="text"
             className="search-field"
-            placeholder="search"
-            onChange={onChangeFxn}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
-          <button className="search-btn" onClick={(e) => articleSearch(e)}>
-            search
-          </button>
+          <button className="search-btn" onClick={(e) => handleClick(e)}>search</button>
         </form>
       </div>
     </section>
