@@ -1,0 +1,22 @@
+nav {
+    /* background-color: #dccb94; */
+    /* border: 2px solid #b89d40; */
+    display: flex;
+    justify-content: center;
+    /* text-decoration-style: dotted; */
+    width: 100%;
+}
+
+.nav-icon-box {
+    display: flex;
+    align-items: center;
+    /* width: 50%; */
+}
+
+.box {
+    margin-right: 8rem;
+}
+
+
+/* #dccb94
+#b89d40 */

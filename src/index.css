@@ -1,4 +1,6 @@
-body {
+html, body {
+  background-color: #fffbec;
   margin: 0;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  height: 100vh;
 }
