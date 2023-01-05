@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import "./SingleArticle.css";
 
 const SingleArticle = ({article}) => {
-    console.log(article)
   return (
     <section className='single-art-page'>
         <Link to="/">

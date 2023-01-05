@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 import { fetchData } from "../../utilities/apiCalls";
 import "./App.css";
 import siteLogo from "../../assets/DLN.png";
-// import Home from "../Home/Home";
 import Navbar from "../Navbar/Navbar";
 import ArticleContainer from "../ArticleContainer/ArticleContainer";
 import Search from "../Search/Search";
@@ -11,8 +10,10 @@ import SingleArticle from "../SingleArticle/SingleArticle";
 
 const App = () => {
   const [newsData, setNewsData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(newsData)
+  const [query, setQuery] = useState("")
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     getNewsData();
@@ -29,10 +30,29 @@ const App = () => {
   const findArticle = (publishedDate) => {
     return newsData.filter((news) => {
       return news.published === publishedDate;
-    })
+    });
   };
 
-  return (
+  const handleChange = (e) => {
+    const searchInput = e.target.value.toLowerCase();
+    setQuery(searchInput)
+  }
+
+  const articleSearch = () => {
+    const searchTitles = newsData.filter((art) => {
+      return art.title.toLowerCase().includes(query)
+    })
+    setSearchQuery(searchTitles)
+    console.log(searchQuery, "here I am")
+  }
+
+  const handleOpen = () => {
+    setOpen(!open)
+  }
+
+  return loading ? (
+    <div>Loading...</div>
+  ) : (
     <main className="App">
       {loading && <div>Loading...</div>}
       <Switch>
@@ -40,11 +60,8 @@ const App = () => {
           exact
           path="/article/:published"
           render={({ match }) => {
-            console.log(match)
-            const selectedArt = findArticle(match.params.published)
-            return (
-              <SingleArticle article={selectedArt} />
-            );
+            const selectedArt = findArticle(match.params.published);
+            return <SingleArticle article={selectedArt} />;
           }}
         />
         <Route exact path="/">
@@ -60,13 +77,11 @@ const App = () => {
                 <i>Your new favorite news source</i>
               </h2>
             </div>
-            <Navbar />
+            <Navbar handleOpen={handleOpen}/>
+            {open ? <Search /> : null}
             <ArticleContainer newsData={newsData} />
           </section>
         </Route>
-        {/* <Route path="/search">
-          <Search />
-        </Route> */}
       </Switch>
     </main>
   );

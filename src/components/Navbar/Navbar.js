@@ -5,7 +5,7 @@ import logo from "../../assets/DLN_logo.png";
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 
-const Navbar = () => {
+const Navbar = ({ handleOpen }) => {
   return (
     <nav>
       <div className="logo-box box">
@@ -17,11 +17,9 @@ const Navbar = () => {
         <InfoRoundedIcon fontSize="large" sx={{ color: "#b89d40" }}/>
           </div>
         </NavLink>
-        <NavLink to="/search">
-          <div className="search-icon box">
+          <div className="search-icon box" onClick={handleOpen}>
           <SearchRoundedIcon fontSize="large" sx={{ color: "#b89d40" }}/>
           </div>
-        </NavLink>
       </div>
     </nav>
   );

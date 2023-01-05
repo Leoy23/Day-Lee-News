@@ -1,21 +1,27 @@
-// import React, { useState } from 'react';
-// import "./Search.css";
+import React from "react";
+import "./Search.css";
 
+const Search = ({ articleSearch, onChangeFxn }) => {
+  return (
+    <section className="search-page">
+      <div className="search-box-title">
+        <h1>SEARCH FOR ARTICLES BY TITLE</h1>
+      </div>
+      <div className="form-box">
+        <form>
+          <input
+            type="search"
+            className="search-field"
+            placeholder="search"
+            onChange={onChangeFxn}
+          />
+          <button className="search-btn" onClick={(e) => articleSearch(e)}>
+            search
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+};
 
-// const Search = ({ searchArticles }) => {
-//   return (
-//     <section className='form-container'>
-//       <form>
-//         <input 
-//         type="text"
-//         placeholder="search"
-//         value={query}
-//         onChange={(e) => handleChange(e)}
-//         />
-//         <button className='search-btn' onClick={searchArticles(query)}>search</button>
-//       </form>
-//     </section>
-//   )
-// }
-
-// export default Search
+export default Search;
