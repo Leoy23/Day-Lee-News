@@ -16,6 +16,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li><a href="#project-tools">Project Tools</a></li>
     <li><a href="#setup">Setup</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li>
@@ -33,16 +34,18 @@
 This project was created to mimic the take-home challenge experience used when applying for developer roles within the industry. 
 <br>
 
-<h3 align="center">Main Page</h3>
-<p align="center"><img width="500" src="https://user-images.githubusercontent.com/106054421/201592610-34c1ff73-01b4-4b82-986d-5454589779a6.png" alt="tune-out landing page"></p>
-
 
 <h3 align="center">Home Display</h3>
-<p align="center"><img width="500" src="https://user-images.githubusercontent.com/106054421/210191741-c5896797-354d-4e60-8cb1-1fb1d373bd16.png" alt="tune-out home page display with a navigation bar and and event cards"></p>
+<p align="center"><img width="500" src="https://user-images.githubusercontent.com/106054421/211097487-4fe4cd1f-f9bc-435d-b27c-f056c6d54c7d.png" alt="home page display"></p>
+<p align="center"><img width="500" src="https://user-images.githubusercontent.com/106054421/211097494-9f55ea5e-9cb1-4e23-884e-84860fd1e61d.png" alt="home page display cards"></p>
+
+<h3 align="center">Single Article Display</h3>
+<p align="center"><img width="500" src="https://user-images.githubusercontent.com/106054421/211097713-66f8fabe-4f5b-4a8e-9510-7dc50b5a74fd.png" alt="single article display"></p>
+
+<h3 align="center">Search display</h3>
+<p align="center"><img width="500" src="https://user-images.githubusercontent.com/106054421/211097882-ecb03660-2823-4997-9b5a-95acbbaf9b4d.png" alt="search page"></p>
 
 
-<h3 align="center">Status 404 Display</h3>
-<p align="center"><img width="500" src="https://user-images.githubusercontent.com/106054421/201592644-c2c8c9b8-70bf-4c2b-968b-85ddde2d27d0.png" alt="tune-out 404 error page"></p>
 
 <br />
 
@@ -55,6 +58,16 @@ This project was created to mimic the take-home challenge experience used when a
 ![Cypress][Cypress-shield]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## Project Tools
+<a href="https://www.notion.so/Take-Home-Challenge-prep-51d15c017b9047298af0ae020cbdc252">Notion Document</a>
+<a href="https://github.com/users/Leoy23/projects/5">Project Board</a>
+
+### Wireframe 
+<p align="center"><img width="500" src="https://user-images.githubusercontent.com/106054421/211097309-a83affe7-6362-4149-8b70-c0ccb9c7e2b1.png" alt="wire frame"></p>
+
+
 
 ## Setup
 - Clone the repository to your local machine
