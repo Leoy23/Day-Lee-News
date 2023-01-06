@@ -7,6 +7,7 @@ import Navbar from "../Navbar/Navbar";
 import ArticleContainer from "../ArticleContainer/ArticleContainer";
 import Search from "../Search/Search";
 import SingleArticle from "../SingleArticle/SingleArticle";
+import BadUrl from "../BadUrl/BadUrl";
 
 const App = () => {
   const [newsData, setNewsData] = useState([]);
@@ -84,6 +85,7 @@ const App = () => {
             <ArticleContainer newsData={newsData} searchQuery={searchQuery} />
           </section>
         </Route>
+        <Route component={BadUrl} />
       </Switch>
     </main>
   );
