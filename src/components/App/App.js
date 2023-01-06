@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 import { fetchData } from "../../utilities/apiCalls";
 import "./App.css";
 import siteLogo from "../../assets/DLN.png";
-// import Home from "../Home/Home";
 import Navbar from "../Navbar/Navbar";
 import ArticleContainer from "../ArticleContainer/ArticleContainer";
 import Search from "../Search/Search";
@@ -11,13 +10,16 @@ import SingleArticle from "../SingleArticle/SingleArticle";
 
 const App = () => {
   const [newsData, setNewsData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState([]);
+  const [query, setQuery] = useState("");
+  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    getNewsData();
-  }, []);
 
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+  
   const getNewsData = () => {
     setLoading(true);
     fetchData("health").then((data) => {
@@ -26,25 +28,35 @@ const App = () => {
     });
   };
 
+  useEffect(() => {
+    getNewsData();
+  }, []);
+  
   const findArticle = (publishedDate) => {
     return newsData.filter((news) => {
       return news.published === publishedDate;
-    })
+    });
   };
 
-  return (
+  const articleSearch = () => {
+    const searchTitles = newsData.filter((art) => {
+      return art.title.toLowerCase().includes(query.toLowerCase());
+    });
+      setSearchQuery(searchTitles);
+  };
+
+
+  return loading ? (
+    <div>Loading...</div>
+  ) : (
     <main className="App">
-      {loading && <div>Loading...</div>}
       <Switch>
         <Route
           exact
           path="/article/:published"
           render={({ match }) => {
-            console.log(match)
-            const selectedArt = findArticle(match.params.published)
-            return (
-              <SingleArticle article={selectedArt} />
-            );
+            const selectedArt = findArticle(match.params.published);
+            return <SingleArticle article={selectedArt} />;
           }}
         />
         <Route exact path="/">
@@ -56,17 +68,22 @@ const App = () => {
                 className="site-logo"
                 width="35%"
               />
-              <h2 style={{ color: "#b89d40" }}>
-                <i>Your new favorite news source</i>
+              <h2 style={{ color: "#b89d40" }} className="site-info">
+                <i>An exciting way to view top news stories around the globe</i>
               </h2>
             </div>
-            <Navbar />
-            <ArticleContainer newsData={newsData} />
+            <Navbar handleOpen={handleOpen} />
+            {open ? (
+              <Search
+                articleSearch={articleSearch}
+                query={query}
+                setQuery={setQuery}
+                searchQuery={searchQuery}
+              />
+            ) : null}
+            <ArticleContainer newsData={newsData} searchQuery={searchQuery} />
           </section>
         </Route>
-        {/* <Route path="/search">
-          <Search />
-        </Route> */}
       </Switch>
     </main>
   );

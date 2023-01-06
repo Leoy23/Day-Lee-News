@@ -2,21 +2,30 @@ import React from "react";
 import "./ArticleContainer.css";
 import ArticleCard from "../ArticleCard/ArticleCard";
 
-const ArticleContainer = ({ newsData }) => {
-    const artCard = newsData.map((article, index) => {
-    return (
-      <ArticleCard
-        abstract={article.abstract}
-        img={article.img.url}
-        key={index}
-        section={article.section}
-        title={article.title}
-        published={article.published}
-      />
-    );
-  });
+const ArticleContainer = ({ newsData, searchQuery }) => {
+  let articleCards;
+  
 
-  return <section className="article-container">{artCard}</section>;
+  const displayAllArts = (artData) => {
+    return artData.map((article, index) => {
+      return (
+        <ArticleCard
+        article={article}
+        key={index}
+        />
+      )
+    })
+  }
+  if (!searchQuery.length) {
+    articleCards = displayAllArts(newsData)
+  } else {
+    articleCards = displayAllArts(searchQuery)
+    console.log(searchQuery)
+  }
+
+  return <section className="article-container">
+    {articleCards}
+    </section>;
 };
 
 export default ArticleContainer;

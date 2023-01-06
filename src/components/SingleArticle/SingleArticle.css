@@ -1,0 +1,45 @@
+.article {
+    display: flex;
+    padding: 1rem;
+}
+
+.single-art-page {
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-url {
+    height: 20rem;
+}
+
+.home-btn {
+    width: 100%;
+    background-color: #b89d40;
+}
+
+
+.art-info {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.art-title {
+    color: #b89d40;
+}
+@media screen and (min-width: 721px) { 
+    .image-url {
+        height: 20rem;
+    }
+}
+
+@media only screen and (max-width: 993px) {
+    .article {
+        flex-direction: column;
+    }
+    .art-info {
+        flex-wrap: wrap;
+    }
+    .image-url {
+        height: 30rem;
+    }
+  }

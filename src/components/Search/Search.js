@@ -1,21 +1,31 @@
-// import React, { useState } from 'react';
-// import "./Search.css";
+import React from "react";
+import "./Search.css";
 
+const Search = ({ query, setQuery, articleSearch }) => {
 
-// const Search = ({ searchArticles }) => {
-//   return (
-//     <section className='form-container'>
-//       <form>
-//         <input 
-//         type="text"
-//         placeholder="search"
-//         value={query}
-//         onChange={(e) => handleChange(e)}
-//         />
-//         <button className='search-btn' onClick={searchArticles(query)}>search</button>
-//       </form>
-//     </section>
-//   )
-// }
+  const handleClick = (e) => {
+    e.preventDefault();
+    articleSearch(query);
+  }
 
-// export default Search
+  return (
+    <section className="search-page">
+      <div className="search-box-title">
+        <h1 className="search-title">SEARCH FOR ARTICLES BY TITLE</h1>
+      </div>
+      <div className="form-box">
+        <form>
+          <input
+            type="text"
+            className="search-field"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <button className="search-btn" onClick={(e) => handleClick(e)}>search</button>
+        </form>
+      </div>
+    </section>
+  );
+};
+
+export default Search;

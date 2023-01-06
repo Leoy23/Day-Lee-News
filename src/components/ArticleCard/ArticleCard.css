@@ -1,30 +1,28 @@
 .article-card {
     background-color: #dccb94;
-    /* box-shadow: 2px 4px 4px #e3c45f; */
-    /* border-radius: 2rem; */
-    /* box-sizing: border-box; */
     color: #77600f;
-    width: 65%;
+    width: 15rem;
     text-decoration: wavy;
-    padding: 1rem;
-    /* font-size: 0.9rem; */
+    padding: 1rem;   
+    margin: 0.5rem;
+}
+
+.article-card:hover {
+background-color: #d8b646;
+color: white;
+box-shadow: 10px 10px 10px #77600f;
 }
 
 .article-title-box {
- width: 90%;
- border: 1px solid #77600f;
- border-left: none;
- border-right: none;
+ border-bottom: 1px solid #77600f;
  padding: 1rem;
 }
 
 .art-details {
-padding: 1rem;
+display: flex;
+flex-direction: column;
 }
 
 .art-img {
     border: 3px solid #77600f;
 }
-
-/* #dccb94
-#b89d40 */

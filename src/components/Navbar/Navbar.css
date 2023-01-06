@@ -1,22 +1,16 @@
 nav {
-    /* background-color: #dccb94; */
-    /* border: 2px solid #b89d40; */
     display: flex;
     justify-content: center;
-    /* text-decoration-style: dotted; */
-    width: 100%;
+    border-top: 2px solid #dccb94;
+    border-bottom: 2px solid #dccb94;
+    padding: 2rem;
 }
 
 .nav-icon-box {
     display: flex;
     align-items: center;
-    /* width: 50%; */
 }
 
-.box {
-    margin-right: 8rem;
+.dln-logo {
+    height: 6rem;
 }
-
-
-/* #dccb94
-#b89d40 */
