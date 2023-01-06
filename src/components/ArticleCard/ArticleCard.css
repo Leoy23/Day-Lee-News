@@ -1,9 +1,16 @@
 .article-card {
     background-color: #dccb94;
     color: #77600f;
-    width: 40%;
+    width: 15rem;
     text-decoration: wavy;
-    padding: 1rem;
+    padding: 1rem;   
+    margin: 0.5rem;
+}
+
+.article-card:hover {
+background-color: #d8b646;
+color: white;
+box-shadow: 10px 10px 10px #77600f;
 }
 
 .article-title-box {

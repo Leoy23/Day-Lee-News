@@ -11,14 +11,15 @@ import SingleArticle from "../SingleArticle/SingleArticle";
 const App = () => {
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(newsData)
-  const [query, setQuery] = useState("")
-  const [open, setOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState([]);
+  const [query, setQuery] = useState("");
+  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    getNewsData();
-  }, []);
 
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+  
   const getNewsData = () => {
     setLoading(true);
     fetchData("health").then((data) => {
@@ -27,6 +28,10 @@ const App = () => {
     });
   };
 
+  useEffect(() => {
+    getNewsData();
+  }, []);
+  
   const findArticle = (publishedDate) => {
     return newsData.filter((news) => {
       return news.published === publishedDate;
@@ -35,21 +40,16 @@ const App = () => {
 
   const articleSearch = () => {
     const searchTitles = newsData.filter((art) => {
-      return art.title.toLowerCase().includes(query.toLowerCase())
-    })
-    setSearchQuery(searchTitles)
-  }
-  console.log(searchQuery)
+      return art.title.toLowerCase().includes(query.toLowerCase());
+    });
+      setSearchQuery(searchTitles);
+  };
 
-  const handleOpen = () => {
-    setOpen(!open)
-  }
 
   return loading ? (
     <div>Loading...</div>
   ) : (
     <main className="App">
-      {loading && <div>Loading...</div>}
       <Switch>
         <Route
           exact
@@ -68,13 +68,20 @@ const App = () => {
                 className="site-logo"
                 width="35%"
               />
-              <h2 style={{ color: "#b89d40" }}>
-                <i>Your new favorite news source</i>
+              <h2 style={{ color: "#b89d40" }} className="site-info">
+                <i>An exciting way to view top news stories around the globe</i>
               </h2>
             </div>
-            <Navbar handleOpen={handleOpen}/>
-            {open ? <Search articleSearch={articleSearch} query={query} setQuery={setQuery} /> : null}
-            <ArticleContainer newsData={newsData} searchQuery={searchQuery}/>
+            <Navbar handleOpen={handleOpen} />
+            {open ? (
+              <Search
+                articleSearch={articleSearch}
+                query={query}
+                setQuery={setQuery}
+                searchQuery={searchQuery}
+              />
+            ) : null}
+            <ArticleContainer newsData={newsData} searchQuery={searchQuery} />
           </section>
         </Route>
       </Switch>

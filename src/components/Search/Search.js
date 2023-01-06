@@ -1,12 +1,11 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import "./Search.css";
 
 const Search = ({ query, setQuery, articleSearch }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    articleSearch(query)
+    articleSearch(query);
   }
 
   return (

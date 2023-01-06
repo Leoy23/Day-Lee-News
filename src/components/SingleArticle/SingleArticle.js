@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./SingleArticle.css";
 
 const SingleArticle = ({ article }) => {
+
   return (
     <section className="single-art-page article">
       {article.map((art, index) => {
@@ -12,7 +13,6 @@ const SingleArticle = ({ article }) => {
                 src={art.img.url}
                 alt={art.title}
                 className="image-url"
-                height={"500px"}
               />
             <div className="art-info article">
               <div className="title-box">

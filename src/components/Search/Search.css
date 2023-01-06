@@ -4,23 +4,25 @@
     align-content: center;
     padding: 2rem;
     margin-top: 4rem;
-    /* border-top: 2px solid #b89d40;
-    border-bottom: 2px solid #b89d40; */
-    /* margin: 2rem; */
 }
 
 .search-title {
     font-size: 2em;
     color: #b89d40;
 }
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
 
 input  {
-    padding: .35rem;
+    padding: .5rem;
+    margin-bottom: .5rem;
 }
 
 .search-btn {
     padding: .30rem;
-    margin-left: 1rem;
-    background-color: #b89d40;
-    color: wheat;
+    width: 30%;
 }
